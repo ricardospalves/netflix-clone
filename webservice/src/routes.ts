@@ -1,4 +1,5 @@
 import { Request, Response, Router } from 'express'
+import { Movie } from './models/movie'
 
 const router = Router()
 
@@ -16,10 +17,19 @@ router.get('/:id', (request: Request, response: Response) => {
   })
 })
 
-router.post('/', (request: Request, response: Response) => {
-  const { body } = request
-
-  response.json(body)
+router.post('/', async (request: Request, response: Response) => {
+  try {
+    const { body } = request
+    const data = await new Movie(body).save()
+    response.json({
+      movie: data,
+    })
+  } catch (error) {
+    response.json({
+      error: true,
+      message: error.message,
+    })
+  }
 })
 
 router.put('/:id', (request: Request, response: Response) => {
