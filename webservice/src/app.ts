@@ -1,7 +1,10 @@
-import express, { Request, Response } from 'express'
+import express from 'express'
 import morgan from 'morgan'
+import mongoose from 'mongoose'
 
 import { router } from './routes'
+
+mongoose.connect('mongodb://localhost/netflix')
 
 const PORT = 4000
 const app = express()
