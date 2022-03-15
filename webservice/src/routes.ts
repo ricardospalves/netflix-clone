@@ -3,18 +3,35 @@ import { Movie } from './models/movie'
 
 const router = Router()
 
-router.get('/', (request: Request, response: Response) => {
-  response.json({
-    message: 'get all',
-  })
+router.get('/', async (request: Request, response: Response) => {
+  try {
+    const movies = await Movie.find({})
+
+    response.json({
+      movies,
+    })
+  } catch (error) {
+    response.json({
+      error: true,
+      message: error.message,
+    })
+  }
 })
 
-router.get('/:id', (request: Request, response: Response) => {
-  const { id } = request.params
+router.get('/:id', async (request: Request, response: Response) => {
+  try {
+    const { id } = request.params
+    const movie = await Movie.findById(id)
 
-  response.json({
-    message: `get id: ${id}`,
-  })
+    response.json({
+      movie,
+    })
+  } catch (error) {
+    response.json({
+      error: true,
+      message: error.message,
+    })
+  }
 })
 
 router.post('/', async (request: Request, response: Response) => {
@@ -32,20 +49,37 @@ router.post('/', async (request: Request, response: Response) => {
   }
 })
 
-router.put('/:id', (request: Request, response: Response) => {
-  const { id } = request.params
+router.put('/:id', async (request: Request, response: Response) => {
+  try {
+    const newMovie = request.body
+    const { id } = request.params
+    const movie = await Movie.findByIdAndUpdate(id, newMovie)
 
-  response.json({
-    message: `update id: ${id}`,
-  })
+    response.json({
+      movie,
+    })
+  } catch (error) {
+    response.json({
+      error: true,
+      message: error.message,
+    })
+  }
 })
 
-router.delete('/:id', (request: Request, response: Response) => {
-  const { id } = request.params
+router.delete('/:id', async (request: Request, response: Response) => {
+  try {
+    const { id } = request.params
+    const movie = await Movie.findByIdAndDelete(id)
 
-  response.json({
-    message: `delete id: ${id}`,
-  })
+    response.json({
+      movie,
+    })
+  } catch (error) {
+    response.json({
+      error: true,
+      message: error.message,
+    })
+  }
 })
 
 export { router }
