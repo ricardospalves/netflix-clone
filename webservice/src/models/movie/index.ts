@@ -1,20 +1,14 @@
 import mongoose, { Schema } from 'mongoose'
 
 const schema = new Schema({
-  title: {
-    type: String,
-    required: true,
-  },
+  title: String,
   genres: [String],
-  releaseDate: Number,
   cast: [String],
-  isReleased: {
-    type: Boolean,
-    default: false,
-  },
-  imdbUrl: String,
+  cover: String,
+  thumb: String,
+  description: String,
+  logo: String,
+  scenes: Array,
 })
 
-const Movie = mongoose.model('Movie', schema)
-
-export { Movie }
+export const Movie = mongoose.model('Movie', schema)
