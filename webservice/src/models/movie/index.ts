@@ -2,13 +2,14 @@ import mongoose, { Schema } from 'mongoose'
 
 const schema = new Schema({
   title: String,
-  genres: [String],
-  cast: [String],
+  type: String,
   cover: String,
+  logo: String,
   thumb: String,
   description: String,
-  logo: String,
-  scenes: Array,
+  genres: [String],
+  cast: [String],
+  scene_moments: [String],
 })
 
 export const Movie = mongoose.model('Movie', schema)

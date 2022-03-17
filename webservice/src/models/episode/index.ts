@@ -11,4 +11,4 @@ const schema = new Schema({
   number: Number,
 })
 
-export const Session = mongoose.model('Session', schema)
+export const Episode = mongoose.model('Episode', schema)

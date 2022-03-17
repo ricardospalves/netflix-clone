@@ -8,4 +8,4 @@ const schema = new Schema({
   title: String,
 })
 
-export const Session = mongoose.model('Session', schema)
+export const Season = mongoose.model('Season', schema)
