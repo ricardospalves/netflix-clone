@@ -2,17 +2,17 @@
   {
     "name": "Silvio Luis",
     "email": "silvio@email.com",
-    "senha": "123"
+    "password": "123"
   },
   {
     "name": "Giovanna Neves",
     "email": "neves@email.com",
-    "senha": "111"
+    "password": "111"
   },
 
   {
     "name": "Michael Romano",
     "email": "michael@email.com",
-    "senha": "213"
+    "password": "213"
   }
 ]
