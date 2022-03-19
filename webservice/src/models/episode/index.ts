@@ -1,9 +1,9 @@
 import mongoose, { Schema } from 'mongoose'
 
 const schema = new Schema({
-  session_id: {
+  season_id: {
     type: mongoose.Types.ObjectId,
-    ref: 'Session',
+    ref: 'Season',
   },
   title: String,
   description: String,

@@ -22,7 +22,7 @@ const addSeasonsAndEpisodes = async () => {
         for (let x = 1; x <= numberOfEpisodes; x++) {
           console.log('episode inserted')
           await new Episode({
-            session_id: season,
+            season_id: season,
             title: 'Episódio',
             description: 'Cupiditate qui impedit nihil nesciunt.',
             cover: 'https://picsum.photos/300/200',
